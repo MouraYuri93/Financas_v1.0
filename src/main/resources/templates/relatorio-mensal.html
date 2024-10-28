@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Relatório Mensal de Despesas</title>
+</head>
+<body>
+    <h1>Relatório Mensal de Despesas</h1>
+
+    <a href="/relatorios/mensal/exportar-excel">
+        <button>Exportar para Excel</button>
+    </a>
+
+    <table>
+        <tr>
+            <th>Ano</th>
+            <th>Mês</th>
+            <th>Total de Despesas</th>
+        </tr>
+        <tr th:each="despesa : ${despesasMensais}">
+            <td th:text="${despesa['ano']}">Ano</td>
+            <td th:text="${despesa['mes']}">Mês</td>
+            <td th:text="${despesa['total']}">Total</td>
+        </tr>
+    </table>
+</body>
+</html>

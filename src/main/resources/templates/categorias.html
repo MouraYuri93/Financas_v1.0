@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Categorias</title>
+</head>
+<body>
+    <h1>Gerenciador de Categorias</h1>
+
+    <h2>Adicionar Nova Categoria</h2>
+    <form action="#" th:action="@{/categorias/salvar}" th:object="${categoria}" method="post">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}"/><br/>
+        <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Lista de Categorias</h2>
+    <table>
+        <tr>
+            <th>Nome</th>
+        </tr>
+        <tr th:each="categoria : ${categorias}">
+            <td th:text="${categoria.nome}">Nome</td>
+        </tr>
+    </table>
+</body>
+</html>
