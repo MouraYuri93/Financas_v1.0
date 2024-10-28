@@ -1,4 +1,3 @@
-
 package org.example.controllers;
 
 import org.example.models.Rendimento;
@@ -9,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/rendimentos")
-public class RendimentoController {
+public class RendimentosController {
     private final RendimentoService rendimentoService;
 
-    public RendimentoController(RendimentoService rendimentoService) {
+    public RendimentosController(RendimentoService rendimentoService) {
         this.rendimentoService = rendimentoService;
     }
 
