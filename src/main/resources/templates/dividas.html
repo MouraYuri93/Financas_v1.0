@@ -1,41 +1,57 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Dívidas</title>
 </head>
 <body>
-    <h1>Gerenciador de Dívidas</h1>
+<h1>Gerenciador de Dívidas</h1>
 
-    <h2>Adicionar Nova Dívida</h2>
-    <form action="#" th:action="@{/dividas/salvar}" th:object="${divida}" method="post">
-        <label>Descrição:</label>
-        <input type="text" th:field="*{descricao}"/><br/>
-        <label>Valor:</label>
-        <input type="number" step="0.01" th:field="*{valor}"/><br/>
-        <label>Data:</label>
-        <input type="date" th:field="*{data}"/><br/>
-        <label>Categoria:</label>
-        <select th:field="*{categoria}">
-            <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}"></option>
-        </select><br/>
-        <button type="submit">Salvar</button>
-    </form>
+<!-- Formulário para adicionar nova dívida -->
+<h2>Adicionar Nova Dívida</h2>
+<form th:action="@{/dividas/salvar}" th:object="${divida}" method="post">
+    <label>Descrição:</label>
+    <input type="text" th:field="*{descricao}" required/><br/>
 
-    <h2>Lista de Dívidas</h2>
-    <table>
-        <tr>
-            <th>Descrição</th>
-            <th>Valor</th>
-            <th>Data</th>
-            <th>Categoria</th>
-        </tr>
-        <tr th:each="divida : ${dividas}">
-            <td th:text="${divida.descricao}">Descrição</td>
-            <td th:text="${divida.valor}">Valor</td>
-            <td th:text="${divida.data}">Data</td>
-            <td th:text="${divida.categoria.nome}">Categoria</td>
-        </tr>
-    </table>
+    <label>Valor:</label>
+    <input type="number" step="0.01" th:field="*{valor}" required/><br/>
+
+    <label>Data:</label>
+    <input type="date" th:field="*{data}" required/><br/>
+
+    <label>Categoria:</label>
+    <select th:field="*{categoria}" required>
+        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}">Categoria</option>
+    </select><br/>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<!-- Tabela de dívidas -->
+<h2>Lista de Dívidas</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Categoria</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="divida : ${dividas}">
+        <td th:text="${divida.descricao}">Descrição</td>
+        <td th:text="${divida.valor}">Valor</td>
+        <td th:text="${#dates.format(divida.data, 'dd/MM/yyyy')}">Data</td>
+        <td th:text="${divida.categoria.nome}">Categoria</td>
+        <td>
+            <!-- Botão de exclusão -->
+            <form th:action="@{/dividas/deletar/{id}(id=${divida.id})}" method="post" style="display:inline;">
+                <button type="submit" onclick="return confirm('Tem certeza que deseja deletar esta dívida?');">Excluir</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

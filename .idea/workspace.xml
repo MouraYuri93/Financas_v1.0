@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31d69037-30f8-476b-9f9c-0feb34bbada1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/data/DataConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/DividaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/DividaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/DataConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/DataConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dividas.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dividas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
